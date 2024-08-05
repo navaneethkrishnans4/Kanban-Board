@@ -1,0 +1,104 @@
+
+<!-- 
+<div class="filter-dialog">
+  <div class="filter-dialog-header">
+    <h3>Apply Filters</h3>
+    <button mat-button class="clear-button" (click)="clearFilter()">
+      <mat-icon>delete</mat-icon>
+      <p style="margin-top: 10px;">Clear Filter</p>
+    </button>
+  </div>
+  <div class="filter-dialog-content">
+    <div *ngFor="let filter of addedFilters; let i = index" class="filter-dropdown-content">
+      <mat-select class="filter-select" placeholder="Select filter" [(ngModel)]="filter.selectedFilter"
+        (ngModelChange)="onFilterChange($event, i)">
+        <mat-option *ngFor="let filterOption of filters" [value]="filterOption.value">{{ filterOption.viewValue }}</mat-option>
+      </mat-select>
+      <div class="filter-is">
+        <mat-select class="additional-select" placeholder="Is / IsNot" [(ngModel)]="filter.isIsNot"
+          (ngModelChange)="onIsIsNotChange($event, i)">
+          <mat-option value="is">Is</mat-option>
+          <mat-option value="isNot">Is Not</mat-option>
+        </mat-select>
+      </div>
+      <div class="filter-check">
+        <mat-select placeholder="Options" multiple [(ngModel)]="filter.selectedOptions"
+          (ngModelChange)="onOptionChange($event, i)">
+          <ng-container *ngIf="filter.selectedFilter === 'status'">
+            <mat-option [value]="status.statusTitle" *ngFor="let status of statuses">{{ status.statusTitle }}</mat-option>
+          </ng-container>
+          <ng-container *ngIf="filter.selectedFilter === 'email'">
+            <mat-option [value]="user.emailId" *ngFor="let user of users">{{ user.emailId }}</mat-option>
+          </ng-container>
+        </mat-select>
+      </div>
+      <div class="icon-container">
+        <mat-icon class="delete-icon" (click)="removeFilter(i)">delete</mat-icon>
+      </div>
+    </div>
+    <div class="apply-filter-button" style="align-self: flex-end;">
+      <button mat-raised-button color="primary" *ngIf="areFiltersValid()" (click)="applyFilters()">
+        <mat-icon>add</mat-icon>
+        <p>Apply Filter</p>
+      </button>
+    </div>
+    <button mat-raised-button color="primary" class="filter-button" (click)="addFilter()">
+      <mat-icon>add</mat-icon>
+      <p style="margin-top: 10px;">Add Filter</p>
+    </button>
+  </div>
+</div>
+ -->
+
+ <div class="filter-dialog">
+  <div class="filter-dialog-header">
+    <h3>Apply Filters</h3>
+    <button mat-button class="clear-button" (click)="clearFilter()">
+      <mat-icon>delete</mat-icon>
+      <p style="margin-top: 10px;">Clear Filter</p>
+    </button>
+  </div>
+  <div class="filter-dialog-content">
+    <div *ngFor="let filter of addedFilters; let i = index" class="filter-dropdown-content">
+      <mat-select class="filter-select" placeholder="Select filter" [(ngModel)]="filter.selectedFilter"
+        (ngModelChange)="onFilterChange($event, i)">
+        <mat-option *ngFor="let filterOption of filters" [value]="filterOption.value">{{ filterOption.viewValue }}</mat-option>
+      </mat-select>
+      <div class="filter-is">
+        <mat-select class="additional-select" placeholder="Is / IsNot" [(ngModel)]="filter.isIsNot"
+          (ngModelChange)="onIsIsNotChange($event, i)">
+          <mat-option value="is">Is</mat-option>
+          <mat-option value="isNot">Is Not</mat-option>
+        </mat-select>
+      </div>
+      <div class="filter-check">
+        <mat-select placeholder="Options" multiple [(ngModel)]="filter.selectedOptions"
+          (ngModelChange)="onOptionChange($event, i)">
+          <ng-container *ngIf="filter.selectedFilter === 'status'">
+            <mat-option [value]="status.statusTitle" *ngFor="let status of statuses">{{ status.statusTitle }}</mat-option>
+          </ng-container>
+          <ng-container *ngIf="filter.selectedFilter === 'email'">
+            <mat-option [value]="user.emailId" *ngFor="let user of users">{{ user.emailId }}</mat-option>
+          </ng-container>
+          <ng-container *ngIf="filter.selectedFilter === 'priority'">
+            <mat-option [value]="priority.toLowerCase()" *ngFor="let priority of priorities">{{ priority }}</mat-option>
+          </ng-container>
+          
+        </mat-select>
+      </div>
+      <div class="icon-container">
+        <mat-icon class="delete-icon" (click)="removeFilter(i)">delete</mat-icon>
+      </div>
+    </div>
+    <div class="apply-filter-button" style="align-self: flex-end;">
+      <button mat-raised-button color="primary" *ngIf="areFiltersValid()" (click)="applyFilters()">
+        <mat-icon>add</mat-icon>
+        <p>Apply Filter</p>
+      </button>
+    </div>
+    <button mat-raised-button color="primary" class="filter-button" (click)="addFilter()">
+      <mat-icon>add</mat-icon>
+      <p style="margin-top: 10px;">Add Filter</p>
+    </button>
+  </div>
+</div>

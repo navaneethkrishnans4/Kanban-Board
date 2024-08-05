@@ -1,0 +1,67 @@
+<div class="edit-task-card-container">
+<mat-card class="edit-task-card">
+  <mat-card-header>
+    <mat-card-title>Edit Task</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="taskTitle" placeholder="Enter task title">
+        <mat-error *ngIf="taskForm.get('taskTitle')?.invalid">Title is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Content</mat-label>
+        <textarea matInput formControlName="taskDescription" placeholder="Enter task description"></textarea>
+        <mat-error *ngIf="taskForm.get('taskDescription')?.invalid">Description is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Assignee</mat-label>
+        <input matInput formControlName="emailId" [matAutocomplete]="assigneeAuto" placeholder="Search assignee">
+        <mat-autocomplete #assigneeAuto="matAutocomplete">
+          <mat-option *ngFor="let user of filteredUsers | async" [value]="user.emailId">{{ user.firstName }} {{
+            user.lastName }}</mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="taskForm.get('emailId')?.invalid">Assignee is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <input matInput formControlName="statusCode" [matAutocomplete]="statusAuto" placeholder="Search status">
+        <mat-autocomplete #statusAuto="matAutocomplete">
+          <mat-option *ngFor="let status of filteredStatuses | async" [value]="status.statusTitle">{{ status.statusTitle
+            }}</mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="taskForm.get('statusCode')?.invalid">Status is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority" placeholder="Select Priority">
+          <mat-option *ngFor="let priority of priorities" [value]="priority.value">{{ priority.viewValue }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="taskForm.get('priority')?.invalid">Priority is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Due Date</mat-label>
+        <input matInput [value]="selectedDueDate" formControlName="dueDate" (click)="openDatePickerDialog($event)"
+          placeholder="Choose a date" readonly>
+        <mat-icon matSuffix (click)="openDatePickerDialog($event)">event</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Time Estimate (hours)</mat-label>
+        <input matInput formControlName="timeSpent" type="number" placeholder="Enter time spent">
+        <mat-error *ngIf="taskForm.get('timeSpent')?.invalid">Time Estimate is required</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button type="submit" color="primary">Confirm</button>
+      <button mat-raised-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card></div>

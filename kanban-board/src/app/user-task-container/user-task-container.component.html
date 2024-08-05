@@ -1,0 +1,51 @@
+<div class="scroll-container">
+  <div class="status-container" >
+    <div class="status-header" *ngFor="let status of statuses" [style.background-color]="status.statusColour">
+      <h3>{{ status.statusTitle }}</h3>
+      <div class="task-count">{{ getStatusTasksCount(status.statusCode) }}</div>
+    </div>
+  </div>
+
+ <mat-accordion class="custom-accordion" [multi]="true" *ngIf="tasksLoaded">
+    <ng-container *ngFor="let user of users; let i = index">
+      <mat-expansion-panel class="custom-expansion-panel" [expanded]="isFolderOpen">
+        <mat-expansion-panel-header class="custom-expansion-panel-header">
+          <div class="user-info">
+            <div class="user-name">
+              {{ user.firstName }} {{ user.lastName }}
+            </div>
+            <div class="task-info">
+              <div class="user-task-count">
+                <mat-icon>assignment</mat-icon> 
+                {{ getUserTasksForUser(user.emailId).length }}
+              </div>
+              <div class="total-time">
+                <mat-icon>access_time</mat-icon>
+                Time Estimate : {{ getTotalTimeForUser(user.emailId,['status001','status002']) }} hours
+              </div>
+            </div>
+          </div>
+          
+        </mat-expansion-panel-header>
+        
+
+        <div class="task-details-content">
+          <div class="task-column" *ngFor="let status of statuses; let j = index"
+            [attr.id]="status.statusCode" 
+            (drop)="onTaskDrop($event, status.statusCode, user.emailId)" (dragover)="onTaskDragOver($event)">
+
+            <div class="task" draggable="true" *ngFor="let task of getStatusTasks(user.emailId, status.statusCode)"
+              (dragstart)="onTaskDragStart($event, task)">
+              <app-task-card [task]="task"  [statuses]="statuses" style="margin: 5px;" (taskDeleted)="onTaskDeleted($event)"></app-task-card>
+            </div>
+            <button mat-raised-button *ngIf="(selectedRowIndex !== i)||(selectedColumnIndex !== j)" [style.background-color]="status.statusColour" class="add-task-button" (click)="openQuickAddTask(status.statusCode,user.emailId,j,i)" >
+              <mat-icon>add</mat-icon> Add Task
+            </button>
+            <app-quick-add-task-card *ngIf="(selectedColumnIndex === j)&&(selectedRowIndex===i)" (taskAdded)="onTaskAdded($event.title, $event.priority)" (cardClosed)="onQuickAddCardClosed()"></app-quick-add-task-card>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+
+</div>

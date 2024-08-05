@@ -1,0 +1,164 @@
+<mat-accordion class="custom-accordion">
+    <mat-expansion-panel *ngFor="let user of users" class="custom-expansion-panel">
+      <mat-expansion-panel-header class="custom-expansion-panel-header" *ngIf="getUserTasksForUser(user.email).length !== 0">
+       
+        {{ user.firstName }} {{ user.lastName }}
+        <span class="task-info">
+          Tasks: {{ getUserTasksForUser(user.email).length }} | 
+          Total Time: {{ getTotalTimeForUser(user.email) }} hours
+        </span>
+      </mat-expansion-panel-header>
+  
+      <!-- Display grid with columns based on task status -->
+      <div class="task-details-content">
+        <mat-grid-list [cols]="getStatusColumns().length" rowHeight="200px">
+          <!-- Loop through status columns -->
+          <mat-grid-tile *ngFor="let status of getStatusColumns()" [colspan]="getStatusTasks(user.email, status).length">
+            
+            <!-- Loop through tasks for current status -->
+            <ng-container *ngFor="let task of getStatusTasks(user.email, status)">
+              <app-task-card [task]="task"></app-task-card>
+            </ng-container>
+          </mat-grid-tile>
+        </mat-grid-list>
+  
+        <!-- Total time for the user -->
+        <mat-card class="custom-total-card">
+          <mat-card-content>
+            <p class="total-time">Total Time: {{ getTotalTimeForUser(user.email) }} hours</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+
+  h3 {
+    margin-bottom: 16px; /* Add bottom margin to the status headers */
+    width: 300px; /* Set a fixed width for the status headers */
+  }
+
+  .mat-grid-tile {
+    flex: 0 0 auto;
+    width: 300px; /* Set a fixed width for each grid tile */
+    justify-content: space-between;
+    margin-right: 16px; /* Add right margin to each grid tile */
+  }
+
+
+
+
+
+
+  ----------------------------
+
+  .scroll-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+  }
+  
+  .status-container {
+    padding: 16px; /* Add padding for spacing */
+  }
+  
+  .mat-grid-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 16px;
+  }
+  
+  
+  .mat-grid-tile, h3 {
+    flex: 1 0 auto; /* Allow the items to grow and shrink */
+    min-width: 300px; /* Set a minimum width for each grid tile and status header */
+  }
+  
+  
+  .task-card {
+    margin-bottom: 16px;
+    width: auto; /* Set a fixed width for the task cards */
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+  }
+  
+  _________________________________________________________________________________________________________________
+
+  <div class="scroll-container">
+  <div class="status-container" style="background-color: brown;">
+    <mat-grid-list [cols]="getStatuses().length" rowHeight="100px" >
+      <mat-grid-tile *ngFor="let status of getStatuses()" style="margin-left:5px; background-color: coral; text-align: center; width: 300px;">
+       <div style="width: 300px;"><h3>{{ status }}</h3></div> 
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <mat-accordion class="custom-accordion" [multi]="true">
+    <ng-container *ngFor="let user of users">
+      <mat-expansion-panel class="custom-expansion-panel" [expanded]="true" style="background-color: aqua; width: fit-content; ">
+        <mat-expansion-panel-header class="custom-expansion-panel-header" *ngIf="getUserTasksForUser(user.email).length !== 0">
+          {{ user.firstName }} {{ user.lastName }}
+          <span class="task-info">
+            Tasks: {{ getUserTasksForUser(user.email).length }} | 
+            Total Time: {{ getTotalTimeForUser(user.email) }} hours
+          </span>
+        </mat-expansion-panel-header>
+
+        <div class="task-details-content" style="background-color: blue;" >
+          <mat-grid-list [cols]="getStatuses().length" rowHeight="400px"  style="width: 2000px;">
+            <mat-grid-tile *ngFor="let status of getStatuses()" style="background-color: rgb(190, 31, 226); " >
+              <div style="height: 300px; overflow-y: auto; padding: 40px; width: 500px;">
+              <ng-container *ngFor="let task of getStatusTasks(user.email, status)" style="display: flex; flex-direction: column;" >
+                <app-task-card [task]="task" style="margin: 10px;" ></app-task-card>
+              </ng-container>
+            </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-card class="custom-total-card">
+            <mat-card-content>
+              <p class="total-time">Total Time: {{ getTotalTimeForUser(user.email) }} hours</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+</div>
+
+
+.scroll-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+ 
+  }
+  
+  .status-container {
+    padding: 16px; /* Add padding for spacing */
+    
+  }
+  
+  .mat-grid-list {
+    display: flex;
+    
+   
+    background-color: #f0f0f0;
+    margin-bottom: 16px;
+    overflow-y: auto;
+   
+  }
+  
+  
+  .mat-grid-tile, h3 {
+    flex: 1 0 auto; /* Allow the items to grow and shrink */
+    min-width: 300px; /* Set a minimum width for each grid tile and status header */
+    
+  }
+  
+  
+  .task-card {
+    margin-bottom: 16px;
+    width: auto; /* Set a fixed width for the task cards */
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    background-color: #f0f0f0;
+  }
+  

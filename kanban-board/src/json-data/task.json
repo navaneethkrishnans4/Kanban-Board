@@ -1,0 +1,306 @@
+{
+    "task": [
+        {
+            "taskId": "T001",
+            "taskTitle": "Build Microservices",
+            "taskDescription": "To build from Scratch",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "john@gmail.com",
+            "timeSpent": 5,
+            "priority": "high"
+        },
+        {
+            "taskId": "T002",
+            "taskTitle": "Build Angular",
+            "taskDescription": "To build from Scratch",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "bryan@gmail.com",
+            "timeSpent": 8,
+            "priority": "low"
+        },
+        {
+            "taskId": "T003",
+            "taskTitle": "Build Drag and Drop",
+            "taskDescription": "To build from Scratch",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "bryan@gmail.com",
+            "timeSpent": 12,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T004",
+            "taskTitle": "Deploy Docker Containers",
+            "taskDescription": "Deploying microservices with Docker",
+            "statusCode": "status002",
+            "statusTitle": "In Progress",
+            "emailId": "john@gmail.com",
+            "timeSpent": 6,
+            "priority": "high"
+        },
+        {
+            "taskId": "T005",
+            "taskTitle": "Implement Authentication",
+            "taskDescription": "Implement user authentication feature",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "bryan@gmail.com",
+            "timeSpent": 7,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T006",
+            "taskTitle": "Refactor Backend Code",
+            "taskDescription": "Optimize backend code for better performance",
+            "statusCode": "status002",
+            "statusTitle": "In Progress",
+            "emailId": "alice@gmail.com",
+            "timeSpent": 15,
+            "priority": "low"
+        },
+        {
+            "taskId": "T007",
+            "taskTitle": "Write Unit Tests",
+            "taskDescription": "Write unit tests for existing codebase",
+            "statusCode": "status003",
+            "statusTitle": "Complete",
+            "emailId": "alice@gmail.com",
+            "timeSpent": 10,
+            "priority": "high"
+        },
+        {
+            "taskId": "T008",
+            "taskTitle": "Optimize Frontend Performance",
+            "taskDescription": "Improve loading times and responsiveness",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "john@gmail.com",
+            "timeSpent": 20,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T009",
+            "taskTitle": "Design Database Schema",
+            "taskDescription": "Create database schema for the application",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "navneeth@gmail.com",
+            "timeSpent": 9,
+            "priority": "low"
+        },
+        {
+            "taskId": "T010",
+            "taskTitle": "Implement Frontend Dashboard",
+            "taskDescription": "Create a dashboard for visualizing data",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "alice@gmail.com",
+            "timeSpent": 18,
+            "priority": "high"
+        },
+        {
+            "taskId": "T011",
+            "taskTitle": "Write API Documentation",
+            "taskDescription": "Document APIs for developers",
+            "statusCode": "status002",
+            "statusTitle": "In Progress",
+            "emailId": "john@gmail.com",
+            "timeSpent": 11,
+            "priority": "low"
+        },
+        {
+            "taskId": "T012",
+            "taskTitle": "Review Code Changes",
+            "taskDescription": "Review code submissions for quality assurance",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "alice@gmail.com",
+            "timeSpent": 14,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T013",
+            "taskTitle": "Implement Backend API Endpoints",
+            "taskDescription": "Create backend APIs for frontend integration",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "navneeth@gmail.com",
+            "timeSpent": 16,
+            "priority": "high"
+        },
+        {
+            "taskId": "T014",
+            "taskTitle": "Write Technical Documentation",
+            "taskDescription": "Document technical specifications and architecture",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "john@gmail.com",
+            "timeSpent": 13,
+            "priority": "low"
+        },
+        {
+            "taskId": "T015",
+            "taskTitle": "Fix Bugs in Frontend Code",
+            "taskDescription": "Address reported bugs in the frontend codebase",
+            "statusCode": "status002",
+            "statusTitle": "In Progress",
+            "emailId": "bryan@gmail.com",
+            "timeSpent": 17,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T016",
+            "taskTitle": "Implement User Profile Page",
+            "taskDescription": "Create a page for users to manage their profiles",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "navneeth@gmail.com",
+            "timeSpent": 19,
+            "priority": "high"
+        },
+        {
+            "taskId": "T017",
+            "taskTitle": "Integration Testing",
+            "taskDescription": "Conduct integration tests to ensure components work together",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "alice@gmail.com",
+            "timeSpent": 21,
+            "priority": "low"
+        },
+        {
+            "taskId": "T018",
+            "taskTitle": "Implement File Upload Feature",
+            "taskDescription": "Allow users to upload files to the application",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "john@gmail.com",
+            "timeSpent": 22,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T019",
+            "taskTitle": "Performance Testing",
+            "taskDescription": "Test application performance under various conditions",
+            "statusCode": "status002",
+            "statusTitle": "In Progress",
+            "emailId": "bryan@gmail.com",
+            "timeSpent": 23,
+            "priority": "high"
+        },
+        {
+            "taskId": "T020",
+            "taskTitle": "Implement Email Notifications",
+            "taskDescription": "Set up email notifications for user actions",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "navaneeth@gmail.com",
+            "timeSpent": 24,
+            "priority": "low"
+        },
+        {
+            "taskId": "T021",
+            "taskTitle": "Code Review",
+            "taskDescription": "Review code changes and provide feedback",
+            "statusCode": "status003",
+            "statusTitle": "Complete",
+            "emailId": "alice@gmail.com",
+            "timeSpent": 25,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T022",
+            "taskTitle": "Implement Real-time Updates",
+            "taskDescription": "Enable real-time updates for data changes",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "john@gmail.com",
+            "timeSpent": 26,
+            "priority": "high"
+        },
+        {
+            "taskId": "T023",
+            "taskTitle": "Code Refactoring",
+            "taskDescription": "Improve code structure and readability",
+            "statusCode": "status002",
+            "emailId": "bryan@gmail.com",
+            "timeSpent": 27,
+            "priority": "low"
+        },
+        {
+            "taskId": "T024",
+            "taskTitle": "Implement Role-based Access Control",
+            "taskDescription": "Define user roles and permissions",
+            "statusCode": "status001",
+            "emailId": "navneeth@gmail.com",
+            "timeSpent": 28,
+            "priority": "medium"
+        },
+        {
+            "taskId": "T025",
+            "taskTitle": "Database Optimization",
+            "taskDescription": "Optimize database queries and indexing",
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "emailId": "alice@gmail.com",
+            "timeSpent": 29,
+            "priority": "high"
+        }
+    ],
+    "status": [
+        {
+            "statusCode": "status001",
+            "statusTitle": "Not Started",
+            "statusColour": "#E5E8E8"
+        },
+        {
+            "statusCode": "status002",
+            "statusTitle": "In Progress",
+            "statusColour": "#D6EAF8"
+        },
+        {
+            "statusCode": "status003",
+            "statusTitle": "In Complete",
+            "statusColour": "#F5B7B1"
+        },
+        {
+            "statusCode": "status004",
+            "statusTitle": "Delivered",
+            "statusColour": "#D5F5E3"
+        },
+        {
+            "statusCode": "status005",
+            "statusTitle": "Error",
+            "statusColour": "#E04220"
+        }
+    ],
+    "user": [
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "emailId": "john@gmail.com"
+        },
+        {
+            "firstName": "Bryan",
+            "lastName": "Smith",
+            "emailId": "bryan@gmail.com"
+        },
+        {
+            "firstName": "Navneeth",
+            "lastName": "Krishnan",
+            "emailId": "navneeth@gmail.com"
+        },
+        {
+            "firstName": "Alice",
+            "lastName": "Johnson",
+            "emailId": "alice@gmail.com"
+        },
+        {
+            "firstName": "Michael",
+            "lastName": "Clark",
+            "emailId": "michael@gmail.com"
+        }
+    ]
+}

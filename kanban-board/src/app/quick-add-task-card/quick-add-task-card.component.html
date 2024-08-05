@@ -1,0 +1,25 @@
+<!-- quick-add-task-card.component.html -->
+<div class="quick-add-task-card">
+    <div class="close-icon" (click)="closeCard()">
+        <mat-icon>close</mat-icon>
+      </div>
+    <div class="icons">
+      <!-- You can add icons for edit, delete, assignee as needed -->
+    </div>
+    <div class="card-header">
+      <input type="text" placeholder="Task Title" [(ngModel)]="newTaskTitle" class="card-title" required>
+    </div>
+    <div class="card-content">
+      <mat-select placeholder="Priority" [(ngModel)]="newTaskPriority" class="priority">
+        <mat-option value="Urgent">Urgent</mat-option>
+        <mat-option value="Low">Low</mat-option>
+        <mat-option value="Medium">Medium</mat-option>
+        <mat-option value="High">High</mat-option>
+      </mat-select>
+      <!-- Add other input fields as needed -->
+    </div>
+    <div class="card-actions">
+      <button mat-button [disabled]="!newTaskTitle" (click)="addTask()">Add Task</button>
+    </div>
+  </div>
+  

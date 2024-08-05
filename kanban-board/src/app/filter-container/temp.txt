@@ -1,0 +1,233 @@
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { TaskServiceService } from '../service/task-service.service';
+import { Status } from '../model/Status';
+import { User } from '../model/User';
+import { FilterService } from '../service/filter.service';
+
+@Component({
+  selector: 'app-filter-container',
+  templateUrl: './filter-container.component.html',
+  styleUrls: ['./filter-container.component.css']
+})
+export class FilterContainerComponent implements OnInit {
+  statuses: Status[] = [];
+  statusMapping: { [key: string]: string } = {};
+  users: User[] = [];
+  addedFilter: { showDropdown: boolean; selectedFilter: string | null; isIsNot: string | null; selectedOptions: string[]; }[] = [];
+  selectedOptions: string[] = [];
+  isIsNot: string | null = null;
+  showDropdown = false;
+  selectedFilter: string[] | null = [];
+  selectedFilterDropdown:string = "";
+
+  filters = [
+    { value: 'status', viewValue: 'Status' },
+    { value: 'email', viewValue: 'Email ID' },
+  ];
+
+  constructor(
+    public dialogRef: MatDialogRef<FilterContainerComponent>,
+    private taskService: TaskServiceService,
+    private filterService: FilterService
+  ) { }
+
+  ngOnInit(): void {
+    this.getStatuses();
+    this.getUsers();
+  }
+
+  getStatuses(): void {
+    this.taskService.getStatus().subscribe(
+      statusArray => {
+        this.statuses = statusArray;
+        
+      },
+      error => console.error(error)
+    );
+  }
+
+ 
+
+  getUsers(): void {
+    this.taskService.getUsers().subscribe(
+      users => this.users = users,
+      error => console.error(error)
+    );
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onFilterChange(filterValue: string): void {
+    this.selectedFilter?.push(filterValue);
+    this.selectedFilterDropdown = filterValue;
+    console.log('Selected filter: ',this.selectedFilter);
+  }
+
+  onIsIsNotChange(value: string): void {
+    this.isIsNot = value;
+  }
+
+  onOptionChange(option: string): void {
+    const index = this.selectedOptions.indexOf(option);
+    console.log("onOptionChange called :", option)
+    if (index > -1) {
+      this.selectedOptions.splice(index, 1);
+    } else {
+      this.selectedOptions.push(option);
+    }
+  }
+
+  
+    applyFilters(): void {
+      let filtersToApply: any = [];
+   if(this.selectedFilter)
+      for(var i=0;i<this.selectedFilter?.length;i++)
+    
+  {
+      if (this.isIsNot === 'is') {
+        if(this.selectedFilter[i]==='status')
+          filtersToApply.push(this.statuses.filter(option => this.selectedOptions[i].includes(option.statusTitle)));
+                                    
+                        
+      else if(this.selectedFilter[i]==='email')
+          filtersToApply.push(this.users.filter(option => this.selectedOptions[i].includes(option.emailId)));
+      
+      } else if (this.isIsNot === 'isNot') {
+        
+        if(this.selectedFilter[i]==='status')
+            filtersToApply.push(this.statuses.filter(option => !this.selectedOptions[i].includes(option.statusTitle)));
+                                      
+                          
+        else if(this.selectedFilter[i]==='email')
+            filtersToApply.push(this.users.filter(option => !this.selectedOptions[i].includes(option.emailId)));
+        
+      }
+  
+  
+      
+    }
+    this.filterService.changeFilter({ selectedFilter: this.selectedFilter, filtersToApply }); 
+    }
+
+
+    // applyFilters(): void {
+    //   let filtersToApply: any = [];
+    //   this.selectedFilter?.forEach(selectedFilterElement => {
+    //     filtersToApply = this.isIsNot === 'is'
+    //       ? this.applyIsFilter(selectedFilterElement, filtersToApply)
+    //       : this.applyIsNotFilter(selectedFilterElement, filtersToApply);
+  
+    //     this.filterService.changeFilter({ selectedFilter: this.selectedFilter, filtersToApply });
+    //   });
+    // }
+  
+    // applyIsFilter(selectedFilterElement: string, filtersToApply: any[]): any[] {
+    //   if (selectedFilterElement === 'status') {
+    //     filtersToApply.push(this.statuses.filter(option => this.selectedOptions[this.selectedOptions.length - 1].includes(option.statusTitle)));
+    //   } else if (selectedFilterElement === 'email') {
+    //     filtersToApply.push(this.users.filter(option => this.selectedOptions[this.selectedOptions.length - 1].includes(option.emailId)));
+    //   }
+    //   return filtersToApply;
+    // }
+  
+    // applyIsNotFilter(selectedFilterElement: string, filtersToApply: any[]): any[] {
+    //   if (selectedFilterElement === 'status') {
+    //     filtersToApply.push(this.statuses.filter(option => !this.selectedOptions[this.selectedOptions.length - 1].includes(option.statusTitle)));
+    //   } else if (selectedFilterElement === 'email') {
+    //     filtersToApply.push(this.users.filter(option => !this.selectedOptions[this.selectedOptions.length - 1].includes(option.emailId)));
+    //   }
+    //   return filtersToApply;
+    // }
+  clearFilter() {
+    this.filterService.changeFilter({ selectedFilter: "", null: null });
+  }
+
+  addFilter(): void {
+    this.addedFilter.push({
+      showDropdown: false,
+      selectedFilter: 'status',
+      isIsNot: null,
+      selectedOptions: []
+    });
+  }
+
+  removeFilter(index: number): void {
+    this.addedFilter.splice(index, 1);
+  }
+  logFilterValue(filter: any) {
+    console.log(filter);
+  }
+  
+}
+
+
+
+
+<div class="filter-dialog">
+
+  <div class="filter-dialog-header">
+    <h3>Apply Filters</h3>
+
+    <button mat-button class="clear-button" (click)="clearFilter()">
+      <mat-icon>delete</mat-icon>
+      <p style="margin-top: 10px;">Clear Filter</p>
+    </button>
+  </div>
+  <div class="filter-dialog-content">
+
+    <div *ngFor="let filter of addedFilter; let i = index" class="filter-dropdown-content">
+
+      <mat-select #filterSelect class="filter-select" placeholder="Select filter"
+        (selectionChange)="onFilterChange($event.value);logFilterValue(filter)">
+        
+        <mat-option *ngFor="let filter of filters" [value]="filter.value">
+          {{filter.viewValue}}
+        </mat-option>
+      </mat-select>
+
+      <div  class="filter-is">
+        <mat-select class="additional-select" placeholder="Is / IsNot"
+          (selectionChange)="onIsIsNotChange($event.value);logFilterValue(i)">
+          <mat-option value="is">Is</mat-option>
+          <mat-option value="isNot">Is Not</mat-option>
+        </mat-select>
+      </div>
+
+      <div  class="filter-check">
+
+        <mat-select placeholder="Options" multiple (selectionChange)="onOptionChange($event.value);logFilterValue(filter.selectedFilter)"
+          *ngIf="selectedFilter && selectedFilter[i] !== null && selectedFilter[i] === 'status'">
+          <mat-option *ngFor="let option of statuses" [value]="option.statusTitle">{{ option.statusTitle }}</mat-option>
+        </mat-select>
+
+        <mat-select placeholder="Options" multiple (selectionChange)="onOptionChange($event.value)"
+          *ngIf="selectedFilter && selectedFilter[i] !== null && selectedFilter[i] === 'email'">
+          <mat-option *ngFor="let option of  users" [value]="option.emailId">{{ option.emailId }}</mat-option>
+        </mat-select>
+      </div>
+
+
+      <div  class="icon-container">
+        <mat-icon class="delete-icon" (click)="removeFilter(i)">delete</mat-icon>
+      </div>
+      
+
+    </div>
+    <div class="apply-filter-button" style="align-self: flex-end;">
+      <button *ngIf="selectedFilter && isIsNot && selectedOptions.length > 0" mat-raised-button color="primary"
+        (click)="applyFilters()">
+        <mat-icon>add</mat-icon>
+        <p>Apply Filter</p>
+      </button>
+    </div>
+    <button mat-raised-button color="primary" class="filter-button" (click)="addFilter()">
+      <mat-icon>add</mat-icon>
+      <p style="margin-top: 10px;">Add Filter</p>
+    </button>
+
+  </div>
+
+</div>

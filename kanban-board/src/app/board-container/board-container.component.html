@@ -1,0 +1,8 @@
+<div class="flex-container">
+    <div class="fixed-header">
+      <app-board-control-header (toggleExpansion)="onToggleExpansion()"></app-board-control-header>
+    </div>
+  
+    <app-user-task-container [isFolderOpen]="isFolderOpen" [fitlerData]="fitlerData" ></app-user-task-container>
+  </div>
+  

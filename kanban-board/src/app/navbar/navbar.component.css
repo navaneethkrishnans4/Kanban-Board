@@ -1,0 +1,47 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.folder-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folder-icon {
+  margin-right: 8px;
+  line-height: 1.5;
+}
+
+.arrow-icon {
+  margin-left: auto;
+  line-height: 1.5;
+}
+
+.nested-list {
+  padding-left: 24px;
+}
+
+.folder-title {
+  font-weight: bold;
+  padding-right: 30px;
+  
+}
+.spacer {
+  flex: 1 1 auto;
+}
+

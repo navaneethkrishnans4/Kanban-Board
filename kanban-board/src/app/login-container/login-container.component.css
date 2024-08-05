@@ -1,0 +1,73 @@
+.container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: flex-start; /* Align items to the top */
+
+}
+
+.login-container, .register-container {
+  flex: 1;
+  width: 300px; /* Adjust container width as needed */
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 5px; /* Add border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.register-container{
+  width: 300px;
+}
+
+.spacer {
+  flex: 0 0 20px;  /* Adjust spacing width as needed */
+}
+
+.hidden {
+  display: none; /* Hide container when not active */
+}
+
+.login-links {
+  margin-top: 20px; /* Add margin to separate from login/register forms */
+  text-align: center;
+}
+
+.register-button {
+  margin-right: 10px;
+ background-color: darkcyan;
+}
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.error-message{
+margin-top: 20px;
+color: darkred;
+text-align: center;
+}
+
+.tag-image img {
+  max-width: 100%; /* Ensure image doesn't exceed container width */
+  height: fit-content ; /* Maintain aspect ratio */
+
+}
+.tag-image {
+  /* Adjust image width as needed */
+  flex: 1;
+  width: 50%; /* Adjust image width as needed */
+  max-width: 1200px; /* Limit maximum width */
+   /* Add box shadow */
+  overflow: hidden; /* Hide overflowing content */
+  
+}
+.image-header {
+  text-align: center; /* Align text to the center */
+  font-size: 50px; /* Adjust font size as needed */
+  font-weight: bolder; /* Make the text bold */
+  margin-bottom: 10px; /* Add some bottom margin for spacing */
+  margin-top: 10px;
+  color: rgb(101, 109, 109);
+  height: fit-content;
+}

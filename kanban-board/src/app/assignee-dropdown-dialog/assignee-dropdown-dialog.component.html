@@ -1,0 +1,12 @@
+<mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Search Assignee</mat-label>
+      <input matInput placeholder="Search..." [(ngModel)]="searchQuery" (input)="filterUsers()">
+    </mat-form-field>
+    <div class="dropdown-list">
+      <div *ngFor="let user of filteredUsers" class="dropdown-item" (click)="selectAssignee(user)">
+        {{ user.firstName }} {{user.lastName}}
+      </div>
+    </div>
+  </mat-dialog-content>
+  

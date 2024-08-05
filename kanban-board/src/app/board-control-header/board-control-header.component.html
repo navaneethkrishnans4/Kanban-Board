@@ -1,0 +1,32 @@
+<div class="board-control-header">
+
+  <div class="search-field">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search tasks..." class="search-input" (input)="filterTasks($event)">
+    <button mat-icon-button aria-label="Clear" class="clear-button" (click)="clearSearch()" *ngIf="searchText">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+  
+
+  <mat-button-toggle-group class="filter-toggle" multiple>
+    <mat-button-toggle #filterButton value="filter" (click)="openFilterDialog($event)" [checked]="filterActive">
+      <mat-icon>filter_list</mat-icon> Filter
+    </mat-button-toggle>
+    
+    <mat-button-toggle value="assignees" (click)="toggleAssigneeDropdown($event)"  [checked]="assigneeActive">
+      <mat-icon>assignment_ind</mat-icon> Assignees
+    </mat-button-toggle>
+    <button mat-icon-button aria-label="Clear Filter" class="clear-button"  (click)="clearFilter()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-button-toggle-group>
+
+  <button mat-raised-button color="primary" class="add-task-button" (click)="openAddTaskDialog()">
+    <mat-icon>add</mat-icon> Add Task
+  </button>
+
+  <button mat-icon-button class="collapse-expand-btn" aria-label="Collapse/Expand all" (click)="onToggleExpansion()">
+    <mat-icon>unfold_less</mat-icon>
+  </button>
+
+</div>

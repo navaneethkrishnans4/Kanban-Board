@@ -1,0 +1,131 @@
+.filter-dialog {
+    width: 1000px;
+    height: fit-content;
+    min-height: 200px;
+    padding: 20px;
+    background-color: #ffffff; /* Lighter background color */
+    border-radius: 16px; /* Larger border radius */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Larger box shadow for depth */
+   
+    
+  }
+  
+  .filter-dialog h3 {
+    margin-bottom: 20px;
+    font-size: 1.4em; /* Larger font size */
+    color: #333333;
+    font-weight: 500; /* Medium font weight */
+  }
+  
+  .filter-dialog-content {
+    display: flex;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-button {
+    background-color: #3f51b5; /* Material Indigo color */
+    color: #ffffff;
+    border: none;
+    border-radius: 24px; /* Larger border radius */
+    padding: 10px 24px; /* Larger padding */
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.3s ease; /* Transition for hover effect */
+  }
+  
+  .filter-button:hover {
+    background-color: #303f9f; /* Darker color on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+  }
+  
+  .filter-select {
+    width: 200px;
+    margin-right: 10px;
+  }
+  
+  .mat-menu-content {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Larger box shadow for depth */
+  }
+  
+  .mat-option {
+    padding: 12px 24px; /* Larger padding */
+    color: #333333;
+    transition: all 0.3s ease; /* Transition for hover effect */
+  }
+  
+  .mat-option:hover {
+    background-color: #eeeeee; /* Lighter color on hover */
+  }
+ 
+  
+  .filter-dropdown-content {
+    width: 800px;
+    height: 90px;
+    background-color: rgb(241, 241, 249);
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #ffffff; /* Add border */
+    border-radius: 16px; /* Rounded corners */
+    padding: 10px; /* Padding inside the border */
+    margin-bottom: 10px;
+  }
+  
+  .filter-check, .filter-is, .filter-select {
+    width: 200px;
+    height: fit-content;
+   
+    border: 1px;/* Add border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 5px; /* Padding inside the border */
+   background-color: #ffffff;
+  }
+  
+  /* Add some hover effect for the dropdowns */
+  .filter-check:hover, .filter-is:hover, .filter-select:hover {
+    border-color: #303f9f; /* Darker color on hover */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add some shadow on hover */
+  }
+  
+  .clear-button {
+    background-color: #ffffff; /* Material Indigo color */
+    color: black;
+    border: 10px;
+    border-radius: 10px; /* Larger border radius */
+    padding: 10px 24px; /* Larger padding */
+   border-color: azure;
+  
+    transition: all 0.3s ease; /* Transition for hover effect */
+  }
+  .filter-dialog-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ 
+  }
+
+  .icon-container {
+    margin-bottom: 5px;
+    margin-top: auto;
+    margin-right: 10px;
+    padding: 5px;
+     /* light red */
+    transition: background-color 0.3s ease; /* smooth transition */
+    border-radius: 5px;
+  }
+  
+  .icon-container:hover {
+    background-color: #FFA7A7; /* slightly darker red on hover */
+  }
+  
+  .delete-icon {
+    color: black;
+    transition: color 0.3s ease; /* smooth transition */
+  }
+  
+  .icon-container:hover .delete-icon {
+    color: red;
+  }
+  

@@ -1,0 +1,44 @@
+<div class="login-full"
+  style="display: flex; height: 100%; width: 100%; background-color: #cbd4d4; align-items: center;">
+  
+  
+  <div class="tag-image">
+    <div class="image-header">KanBan Board</div>
+    <img src="../../assets/Kanban.png" alt="Kanban Image">
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class = "content" >
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; margin-right: 20px;">
+      <div class="login-container" [ngClass]="{'hidden': showRegister}">
+       
+        <form (ngSubmit)="onSubmit()" style="margin-top: 30px;margin-bottom: 30px ;">
+          <mat-form-field class="input-field">
+            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+          </mat-form-field>
+          <mat-form-field class="input-field">
+            <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="login-button">Login</button>
+          <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        </form>
+      </div>
+
+      
+
+      
+
+      <div class="register-container" [ngClass]="{'hidden': !showRegister}">
+        <app-register-user *ngIf="showRegister"></app-register-user>
+      </div>
+      <div class="login-links">
+        <button mat-raised-button class="register-button" (click)="toggleRegister()"
+          [ngClass]="{'hidden': showRegister}">Register</button>
+        <button mat-raised-button class="register-button" (click)="toggleRegister()"
+          [ngClass]="{'hidden': !showRegister}">Login</button>
+      </div>
+    </div>
+  </div>
+
+</div>

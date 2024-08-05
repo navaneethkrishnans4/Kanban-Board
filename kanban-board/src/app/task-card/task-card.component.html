@@ -1,0 +1,25 @@
+<div class="task-card" [style.border-top-color]="statusColour">
+  <div class="icons">
+    <mat-icon class="icon-primary" (click)="onEditTaskClick()">edit</mat-icon>
+    <mat-icon class="icon-warn" (click)="onDeleteTaskClick()">delete</mat-icon>
+    <mat-icon class="icon-primary" (click)="toggleAssigneeDropdown($event)">person</mat-icon>
+  </div>
+  <div class="card-header">
+    <h2 class="card-title">{{ task.taskTitle }}</h2>
+  </div>
+  <div class="card-content">
+    <p>{{ task.taskDescription }}</p>
+  </div>
+  <div class="card-actions">
+    <!-- <span> Status : {{ statusTitle }}</span> -->
+    <div class="due-date" #picker (click)="openDatePicker($event)" style="display: flex;align-content: center;">
+      <mat-icon>event</mat-icon>
+      <span>{{task.dueDate}}</span>
+      
+    </div>
+    
+
+    <div class="priority" [style.color]="priorityColor" (click)="openPriorityDialog($event)"><mat-icon>flag</mat-icon><span style="color: darkgray;margin-left: 5px;">{{task.priority}}</span></div>
+  </div>
+  
+</div>

@@ -1,0 +1,59 @@
+/* quick-add-task-card.component.css */
+.quick-add-task-card {
+    padding: 20px;
+    margin-bottom: 16px;
+    width: 250px;
+    min-width: 100px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    overflow-wrap: break-word;
+    border-radius: 10px;
+    border-top-width: 20px;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  .icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .quick-add-task-card:hover .icons {
+    opacity: 1;
+  }
+  
+  .card-header, .card-content, .card-actions {
+    padding: 10px;
+    padding-bottom: 0px;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 1.0em;
+    font-weight: normal;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .card-content {
+    padding-bottom: 10px;
+  }
+  
+  .priority {
+    width: 50%;
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+  .card-actions{
+    position: absolute;
+    bottom:10px;
+    right: 5px;
+  }

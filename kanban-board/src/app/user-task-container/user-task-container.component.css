@@ -1,0 +1,140 @@
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-direction: column;
+    
+    margin-top: 60px;
+  }
+  
+  .status-container {
+    display: flex;
+    padding: 20px;
+    height: 100px;
+    padding-left: 40px;
+    width: fit-content;
+    gap: 20px;
+    background-color: #f5f5f5; /* Light gray */
+
+
+ 
+  }
+  
+  .status-header {
+    flex: 1 0 auto;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+    background-color: #ffffff; /* Light yellow */
+    color: #424242; /* Dark gray text */
+    padding: 15px;
+    border-top: 20px solid transparent; 
+  }
+  
+  .task-details-content {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .task-column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: #fff; /* White */
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 15px;
+  }
+  
+  .custom-accordion {
+    width: fit-content;
+    min-width: 100%;
+  }
+  
+  .custom-expansion-panel {
+    min-width: 100%;
+  }
+  
+  .task-count {
+    width: 30px;
+    height: 20px;
+    background-color: #f0f0f0; /* Light gray */
+    color: #333; /* Dark gray text */
+    border-radius: 45px; /* Slightly oval */
+    border: 2px solid #c2b6b6; /* Dark gray border */
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 45%;
+  }
+
+  .add-task-button {
+    
+   
+    color: white; /* Change button text color */
+    border-radius: 20px; /* Round the corners */
+    padding: 8px 16px; /* Add padding */
+    width: 300px;
+  }
+  
+  .add-task-button:hover {
+    background-color: #ffffff; /* Change button background color on hover */
+  }
+  .custom-expansion-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f5f5f5; /* Light gray */
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .task-info {
+    display: flex;
+    align-items: center;
+  }
+  .total-time {
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    width: 210px;
+    background-color: rgb(45, 105, 225);
+    justify-content: space-evenly;
+    padding: 4px;
+    border-radius: 20px;
+  }
+
+.user-task-count {
+  width: fit-content;
+  align-items: center;
+  height: 30px;
+  width: 70px;
+  background-color: #007bff; /* Blue */
+  color: #fff; /* White */
+  border-radius: 20px; /* Circle */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 10px;
+
+}
+  
+  
+  

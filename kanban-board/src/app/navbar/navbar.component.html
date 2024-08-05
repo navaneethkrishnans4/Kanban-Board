@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="false">
+    <mat-toolbar>
+      Menu
+    </mat-toolbar>
+    <mat-nav-list>
+      <!-- Projects folder -->
+      <a mat-list-item class="folder-item" (click)="toggleFolder()">
+        <mat-icon class="folder-icon">folder</mat-icon>
+        <span class="folder-title">Projects</span>
+        <mat-icon class="arrow-icon">{{ isFolderOpen ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </a>
+      <!-- Nested list for project names -->
+      <div class="nested-list" *ngIf="isFolderOpen">
+        <a mat-list-item href="#">Project 1</a>
+        <a mat-list-item href="#">Project 2</a>
+        <a mat-list-item href="#">Project 3</a>
+      </div>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <!-- Add button to toggle sidenav -->
+      <button *ngIf="!(isHandset$ | async)"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Kanban-Board</span>
+      <span class="spacer"></span>
+      <button mat-icon-button class="logout_button" *ngIf="authService.isLoggedIn" (click)="onLogOut()" title="Logout" style="margin-right: 30px;">
+        
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+   <router-outlet></router-outlet>
+    
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>

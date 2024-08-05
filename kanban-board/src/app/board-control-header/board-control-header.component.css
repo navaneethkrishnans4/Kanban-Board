@@ -1,0 +1,102 @@
+.board-control-header {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #e0e0e0; /* Add border */
+}
+/* 
+.search-field {
+  flex: 1;
+  margin-right: 16px;
+  max-width: 300px;
+  width: 100%;
+  margin-top: 15px;
+} */
+.search-field {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: #fff;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.clear-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+}
+
+.clear-button:hover {
+  color: #ff0000;
+}
+
+
+.filter-toggle {
+  margin-right: 20px;
+  width: fit-content;
+}
+ .mat-form-field-wrapper {
+  border-radius: 20px; /* Make search bar rounded */
+  overflow: hidden; /* Hide overflow */
+}
+
+.filter-toggle,
+.mat-button-toggle {
+  border-radius: 20px; /* Make filter and assignee buttons rounded */
+  margin-right: 10px;
+}
+
+
+.filter-toggle .mat-button-toggle-label-content {
+  font-size: 10px; /* Make the label smaller */
+}
+
+.add-task-button {
+  margin-right: 16px;
+  background-color: #4c60af; /* Change button background color */
+  color: white; /* Change button text color */
+  border-radius: 20px; /* Round the corners */
+  padding: 8px 16px; /* Add padding */
+}
+
+.add-task-button:hover {
+  background-color: #9f9fed; /* Change button background color on hover */
+}
+
+.add-task-button:active {
+  background-color: #3e8e41; /* Change button background color on click */
+}
+
+.add-task-button mat-icon {
+  margin-right: 4px; /* Add spacing between icon and label */
+}
+
+.collapse-expand-btn {
+  margin-left: auto;
+}
+
+/* Add animation on hover for filter button */
+.filter-toggle mat-button-toggle:hover {
+  transform: scale(1.1); /* Increase button scale on hover */
+  transition: transform 0.2s ease-in-out; /* Add smooth transition */
+}
+
+
